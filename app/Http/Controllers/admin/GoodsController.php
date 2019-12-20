@@ -58,18 +58,22 @@ class GoodsController extends Controller
             }
         }
         $specs = Specs::where('g_id',$id)->get()->toArray();
-        $key = Key::where('c_id',$specs[0]['c_id'])->get()->toArray();
-        if (!isset($key[2])) {
-            $key_name = [
-                'k_name1' => $key[0]['key_name'],
-                'k_name2' => $key[1]['key_name'],
-            ];
+        if (empty($specs)) {
+            return view('admin.goods.detail',['data'=>$goods,'specs'=>$specs]);
         }else{
-            $key_name = [
-                'k_name1' => $key[0]['key_name'],
-                'k_name2' => $key[1]['key_name'],
-                'k_name3' => $key[2]['key_name'],
-            ];
+            $key = Key::where('c_id',$specs[0]['c_id'])->get()->toArray();
+            if (!isset($key[2])) {
+                $key_name = [
+                    'k_name1' => $key[0]['key_name'],
+                    'k_name2' => $key[1]['key_name'],
+                ];
+            }else{
+                $key_name = [
+                    'k_name1' => $key[0]['key_name'],
+                    'k_name2' => $key[1]['key_name'],
+                    'k_name3' => $key[2]['key_name'],
+                ];
+            }
         }
         return view('admin.goods.detail',['data'=>$goods,'specs'=>$specs,'key_name'=>$key_name]);
     }

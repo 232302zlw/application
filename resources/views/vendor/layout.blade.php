@@ -76,6 +76,13 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
+                    <a class="" href="javascript:;">商品属性管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/sku/list_key">&emsp;&emsp;商品属性列表</a></dd>
+                        <dd><a href="/admin/sku/create_key">&emsp;&emsp;商品属性添加</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
                     <a class="" href="javascript:;">广告管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/admin/advent/list">&emsp;&emsp;广告列表</a></dd>
