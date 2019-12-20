@@ -37,7 +37,8 @@
                 <select name="c_id" lay-verify="required">
                     <option value=""></option>
                     @foreach($cate as $k => $v)
-                        <option value="{{$v['c_id']}}">{{$v['c_name']}}</option>
+{{--                        <option value="{{$v['c_id']}}">{{$v['c_name']}}</option>--}}
+                        <option value="{{$v['c_id']}}">{{str_repeat('······',$v['lenvel'])}}<a href="">{{$v['c_name']}}</a></option>
                     @endforeach
                 </select>
             </div>
