@@ -100,18 +100,11 @@ class AttributeController extends Controller
     {
         $data = request()->all();
         $c_id = Goods::where('g_id',$data['g_id'])->value('c_id');
-        if ($data['c_id'] != $c_id) {
-            echo json_encode(['font'=>'商品类型不正确','code'=>2]);die;
-        }
-        unset($data['status']);
-        if (!isset($data['specs0']) | !isset($data['specs1']) | !isset($data['specs2'])) {
-            echo json_encode(['font'=>'属性不能为空','code'=>2]);die;
-        }
-        if (!isset($data['stock'])) {
-            echo json_encode(['font'=>'库存不能为空','code'=>2]);die;
-        }
-        if (!isset($data['price'])) {
-            echo json_encode(['font'=>'价格不能为空','code'=>2]);die;
+        if (!isset($data['specs2'])) {
+            $sql = [
+                'specs0' => $data['specs0'],
+                'specs1' => $data['specs1'],
+            ];
         }
         $sql = [
             'specs0' => $data['specs0'],
@@ -124,6 +117,19 @@ class AttributeController extends Controller
         }
         if (!empty($result)) {
             echo json_encode(['font'=>'该属性已存在','code'=>2]);die;
+        }
+        if ($data['c_id'] != $c_id) {
+            echo json_encode(['font'=>'商品类型不正确','code'=>2]);die;
+        }
+//        unset($data['status']);
+        if (!isset($data['specs0']) | !isset($data['specs1']) | !isset($data['specs2'])) {
+            echo json_encode(['font'=>'属性不能为空','code'=>2]);die;
+        }
+        if (!isset($data['stock'])) {
+            echo json_encode(['font'=>'库存不能为空','code'=>2]);die;
+        }
+        if (!isset($data['price'])) {
+            echo json_encode(['font'=>'价格不能为空','code'=>2]);die;
         }
         $res = Specs::where('gs_id',$data['gs_id'])->update($data);
         if ($res == true) {

@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="layui-form-item layui-col-md5">
-        <label class="layui-form-label">历史头像</label>
+        <label class="layui-form-label">当前头像</label>
         <div class="layui-input-block">
             @if($headimg['headimg']=='') 请上传图片 @else <img width="200" src="{{$headimg['headimg']}}"> @endif
         </div>

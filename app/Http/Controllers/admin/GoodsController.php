@@ -79,6 +79,7 @@ class GoodsController extends Controller
     public function save(Request $request)
     {
         $data = request()->all();
+        dd($data);
         if (empty($data['g_name'])) {
             echo "<script>alert('名称不能为空');history.back();</script>";die;
         }

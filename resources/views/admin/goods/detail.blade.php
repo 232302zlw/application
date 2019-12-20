@@ -104,7 +104,7 @@
         </thead>
         <tbody>
         @foreach($specs as $k => $v)
-            <tr align="center">
+            <tr align="center" id="tr">
                 <td>{{$v['gs_id']}}</td>
                 <td>{{$v['specs0']}}</td>
                 <td>{{$v['specs1']}}</td>
@@ -118,6 +118,7 @@
                 </td>
             </tr>
         @endforeach
+        <div align="center"><a class="layui-btn layui-btn-normal" href="/admin/value/create/{{$v['g_id']}}">添加属性</a></div>
         </tbody>
     </table>
 

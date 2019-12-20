@@ -17,8 +17,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">展&emsp;示</label>
             <div class="layui-input-block">
-                <input type="radio" name="is_show" value="1" title="是">
-                <input type="radio" name="is_show" value="2" title="否" checked>
+                <input type="radio" name="is_show" value="1" title="是" checked>
+                <input type="radio" name="is_show" value="2" title="否">
             </div>
         </div>
         <div class="layui-form-item">
@@ -44,7 +44,7 @@
                     function(res){
                         layer.msg(res.font,{icon:res.code,time:1500},function(){
                             if(res.code == 1){
-                                location.href='/admin/brand/list';
+                                location.href='/admin/brand/create';
                             }
                         });
                     },
