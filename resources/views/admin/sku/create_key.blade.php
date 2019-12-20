@@ -1,5 +1,5 @@
 @extends('vendor.layout')
-@section('title','购物车列表')
+@section('title','商品属性添加')
 @section('content')
     <form class="layui-form" id="form">
         <div class="layui-form-item layui-col-md5">
@@ -43,7 +43,14 @@
             //监听提交
             $('.formDemo').click(function(){
                 var data = $('#form').serialize();
-                console.log(data);
+                $.post(
+                    '/admin/sku/save_key',
+                    data,
+                    function(res){
+                        layer.msg(res.font,{icon:res.code,time:1500});
+                    },
+                    'json'
+                );
                 return false;
             });
         });
