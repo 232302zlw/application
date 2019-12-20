@@ -46,9 +46,6 @@ class AttributeController extends Controller
         }
         $status = $data['status'];
         unset($data['status']);
-        if (!isset($data['specs0']) | !isset($data['specs1'])) {
-            echo json_encode(['font'=>'属性不能为空','code'=>2]);die;
-        }
         if (!isset($data['stock'])) {
             echo json_encode(['font'=>'库存不能为空','code'=>2]);die;
         }

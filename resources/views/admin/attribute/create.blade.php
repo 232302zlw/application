@@ -62,7 +62,7 @@
                                    input += "<div class=\"layui-form-item layui-col-md5\" id=\"type\">\n" +
                                        "            <label class=\"layui-form-label\">"+data[i]['key_name']+"</label>\n" +
                                        "            <div class=\"layui-input-block\">\n" +
-                                       "                <input type=\"text\" name=\"specs"+[i]+"\" required  lay-verify=\"required\" placeholder=\"请输入属性\" autocomplete=\"off\" class=\"layui-input\">\n" +
+                                       "                <input type=\"text\" name=\"specs"+[i]+"\" required  lay-verify=\"required\" placeholder=\"请输入属性（必要时可不选，后果自负）\" autocomplete=\"off\" class=\"layui-input\">\n" +
                                        "            </div>\n" +
                                        "        </div>";
                                }
