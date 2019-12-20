@@ -53,7 +53,6 @@
         </colgroup>
         <thead>
         <tr align="center">
-            <td>状态</td>
             <td>是否新品</td>
             <td>是否精品</td>
             <td>是否热销</td>
@@ -66,7 +65,6 @@
         <tbody>
         @foreach($data as $k => $v)
             <tr align="center">
-                <td>@if($v['status'])使用 @else 禁用 @endif</td>
                 <td>@if($v['is_new']==1)是 @else否 @endif</td>
                 <td>@if($v['is_best']==1)是 @else否 @endif</td>
                 <td>@if($v['is_hot']==1)是 @else否 @endif</td>
@@ -93,9 +91,11 @@
         <thead>
         <tr align="center">
             <td>规格ID</td>
-            <td>{{$key_name['k_name1']}}</td>
-            <td>{{$key_name['k_name2']}}</td>
-            <td>{{$key_name['k_name3']}}</td>
+{{--            <td>{{$key_name['k_name1']}}</td>--}}
+{{--            <td>{{$key_name['k_name2']}}</td>--}}
+            <td>规格一</td>
+            <td>规格二</td>
+            @if(!isset($key_name['k_name3'])) @else <td>规格三</td> @endif
             <td>状态</td>
             <td>库存</td>
             <td>价格</td>
@@ -108,7 +108,7 @@
                 <td>{{$v['gs_id']}}</td>
                 <td>{{$v['specs0']}}</td>
                 <td>{{$v['specs1']}}</td>
-                <td>{{$v['specs2']}}</td>
+                @if(!isset($key_name['k_name3'])) @else <td>{{$v['specs2']}}</td> @endif
                 <td>@if($v['status']==1)使用 @else 禁用 @endif</td>
                 <td>{{$v['stock']}}</td>
                 <td>{{$v['price']}}</td>
