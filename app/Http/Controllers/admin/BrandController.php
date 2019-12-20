@@ -49,7 +49,7 @@ class BrandController extends Controller
         if (!preg_match($url,$req['b_url'])) {
             echo json_encode(['font'=>'网址要以http:// 或 https:// 开始','code'=>2]);die;
         }
-        if (strlen($req['b_url']) > 30) {
+        if (strlen($req['b_url']) > 50) {
             echo json_encode(['font'=>'网址过长','code'=>2]);die;
         }
         if ($req['is_show'] == '') {

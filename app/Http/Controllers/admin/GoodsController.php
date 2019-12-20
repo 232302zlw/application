@@ -58,18 +58,19 @@ class GoodsController extends Controller
             }
         }
         $specs = Specs::where('g_id',$id)->get()->toArray();
-        $key = Key::where('c_id',$specs[0]['c_id'])->get()->toArray();
-        if (!isset($key[2]['key_name'])) {
+        if (!isset($key[2])) {
             $key_name = [
                 'k_name1' => $key[0]['key_name'],
                 'k_name2' => $key[1]['key_name'],
             ];
+        }else{
+            $key_name = [
+                'k_name1' => $key[0]['key_name'],
+                'k_name2' => $key[1]['key_name'],
+                'k_name3' => $key[2]['key_name'],
+            ];
         }
-        $key_name = [
-            'k_name1' => $key[0]['key_name'],
-            'k_name2' => $key[1]['key_name'],
-            'k_name3' => $key[2]['key_name'],
-        ];
+//        print_r($specs);exit;
         return view('admin.goods.detail',['data'=>$goods,'specs'=>$specs,'key_name'=>$key_name]);
     }
 
@@ -85,7 +86,6 @@ class GoodsController extends Controller
     public function save(Request $request)
     {
         $data = request()->all();
-        dd($data);
         if (empty($data['g_name'])) {
             echo "<script>alert('名称不能为空');history.back();</script>";die;
         }
