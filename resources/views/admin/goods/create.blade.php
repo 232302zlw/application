@@ -21,24 +21,24 @@
             </div>
         </div>
         <div class="layui-form-item layui-col-md5">
+            <label class="layui-form-label">所&nbsp;属&nbsp;分&nbsp;类</label>
+            <div class="layui-input-block">
+                <select name="c_id" lay-verify="required">
+                    <option value=""></option>
+                    @foreach($cate as $k => $v)
+                        {{--                        <option value="{{$v['c_id']}}">{{$v['c_name']}}</option>--}}
+                        <option value="{{$v['c_id']}}">{{str_repeat('······',$v['lenvel'])}}<a href="">{{$v['c_name']}}</a></option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item layui-col-md5">
             <label class="layui-form-label">所&nbsp;属&nbsp;品&nbsp;牌</label>
             <div class="layui-input-block">
                 <select name="b_id" lay-verify="required">
                     <option value=""></option>
                     @foreach($brand as $k => $v)
                         <option value="{{$v['b_id']}}">{{$v['b_name']}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="layui-form-item layui-col-md5">
-            <label class="layui-form-label">所&nbsp;属&nbsp;分&nbsp;类</label>
-            <div class="layui-input-block">
-                <select name="c_id" lay-verify="required">
-                    <option value=""></option>
-                    @foreach($cate as $k => $v)
-{{--                        <option value="{{$v['c_id']}}">{{$v['c_name']}}</option>--}}
-                        <option value="{{$v['c_id']}}">{{str_repeat('······',$v['lenvel'])}}<a href="">{{$v['c_name']}}</a></option>
                     @endforeach
                 </select>
             </div>
