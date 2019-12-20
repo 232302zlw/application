@@ -41,9 +41,9 @@ class AttributeController extends Controller
     {
         $data = request()->all();
         $c_id = Goods::where('g_id',$data['g_id'])->value('c_id');
-        if ($data['c_id'] != $c_id) {
-            echo json_encode(['font'=>'商品类型不正确','code'=>2]);die;
-        }
+//        if ($data['c_id'] != $c_id) {
+//            echo json_encode(['font'=>'商品类型不正确','code'=>2]);die;
+//        }
         $status = $data['status'];
         unset($data['status']);
         if (!isset($data['stock'])) {
