@@ -59,6 +59,12 @@ class GoodsController extends Controller
         }
         $specs = Specs::where('g_id',$id)->get()->toArray();
         $key = Key::where('c_id',$specs[0]['c_id'])->get()->toArray();
+        if (!isset($key[2]['key_name'])) {
+            $key_name = [
+                'k_name1' => $key[0]['key_name'],
+                'k_name2' => $key[1]['key_name'],
+            ];
+        }
         $key_name = [
             'k_name1' => $key[0]['key_name'],
             'k_name2' => $key[1]['key_name'],
